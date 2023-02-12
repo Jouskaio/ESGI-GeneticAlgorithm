@@ -1,3 +1,4 @@
 //
-// Created by Mikail Yilmaz on 12/02/2023.
+// on tire aléatoirement les solutions à garder, qui ont une chance
+// d’être choisies proportionnelle à leur note.
 //

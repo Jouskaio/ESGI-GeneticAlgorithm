@@ -1,3 +1,4 @@
 //
-// Created by Mikail Yilmaz on 12/02/2023.
+// pour sélectionner une solution, on en choisi M aléatoirement,
+// et on choisi celle qui à la meilleure note parmi elles.
 //
