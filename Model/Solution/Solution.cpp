@@ -1,4 +1,14 @@
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <iomanip>
 #include "Solution.hpp"
+
+using namespace std;
+
+
+
+
 
 Solution::Solution() {
   x = 0;
