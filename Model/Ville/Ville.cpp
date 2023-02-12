@@ -37,3 +37,7 @@ int Ville::getLatitude() {
 int Ville::getLongitude() {
     return longitude;
 }
+
+Ville Ville::getVille(Ville a){
+
+}

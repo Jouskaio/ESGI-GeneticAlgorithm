@@ -23,6 +23,7 @@ class Ville{
     int getId();
     int getLatitude();
     int getLongitude();
+    Ville getVille(Ville a);
 
     private:
     string nom;
