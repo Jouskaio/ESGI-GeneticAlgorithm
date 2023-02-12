@@ -1,0 +1,1 @@
+//La note va être la distance total entre les points.
