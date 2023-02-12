@@ -2,15 +2,20 @@
 #include <algorithm>
 #include <string>
 #include <iomanip>
+
 #include "Solution.hpp"
+#include "GenerateurAleatoire.hpp"
+#include "Evaluateur.hpp"
+#include "Selecteur.hpp"
+#include "Croisementt.hpp"
+#include "Mutation.hpp"
+#include "CritereArret.hpp"
 
 using namespace std;
 
 
 
-
-
-
-
-//faire une fonction template generate(générateur, évaluateur, séléectionneur, opérateur de croisement , opérateur de croisement, opérateur de mutation , critère d'arrêt , taille de population)
-// Return type T
+template<typename T>
+T generate(GenerateurAleatoire a, Evaluateur b, Selecteur c, Croisement d, Mutation e, CritereArret f, int population){
+    //return de type T
+}
