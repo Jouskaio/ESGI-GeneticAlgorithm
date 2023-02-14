@@ -30,11 +30,11 @@ int Ville::getId() {
     return id;
 }
 
-int Ville::getLatitude() {
+double Ville::getLatitude() {
     return latitude;
 }
 
-int Ville::getLongitude() {
+double Ville::getLongitude() {
     return longitude;
 }
 

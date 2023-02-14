@@ -19,10 +19,35 @@ class Ville{
     Ville(string nom, int id, int latitude, int longitude);
     ~Ville();
 
+    /***
+     *
+     * @return
+     */
     string getNom();
+
+    /***
+     *
+     * @return
+     */
     int getId();
-    int getLatitude();
-    int getLongitude();
+
+    /***
+     *
+     * @return
+     */
+    double getLatitude();
+
+    /***
+     *
+     * @return
+     */
+    double getLongitude();
+
+    /***
+     *
+     * @param a
+     * @return
+     */
     Ville getVille(Ville a);
 
     private:
