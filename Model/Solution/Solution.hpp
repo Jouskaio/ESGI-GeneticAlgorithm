@@ -22,6 +22,8 @@ class Solution{
     double getValeur();
     void setValeur(const double &val);
 
+    vector<Solution*> CreationPopulation(vector<Ville> villes)
+
     private:
     vector<Ville*> listeVille;
     int taille;
