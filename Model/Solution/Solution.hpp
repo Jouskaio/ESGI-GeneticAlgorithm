@@ -22,7 +22,9 @@ class Solution{
     double getValeur();
     void setValeur(const double &val);
 
-    vector<Solution*> CreationPopulation(vector<Ville> villes)
+    vector<Solution*> CreationPopulation(vector<Ville> villes);
+
+    void addVille(Ville ville);
 
     private:
     vector<Ville*> listeVille;

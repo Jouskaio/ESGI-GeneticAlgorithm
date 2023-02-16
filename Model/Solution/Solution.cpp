@@ -62,15 +62,23 @@ void Solution::setValeur(const double &val) {
     this->valeur = val;
 }
 
-/***
- *
- * @param villes
- * @return
- */
-vector<Solution*> CreationPopulation(vector<Ville> villes){
-    vector<Solution*> Population = vector<Solution*>();
-
-    for(int i = 0; i <100 ; i++){ //Mettre une variable global pour définir la taille max
-        vector<Ville>
-    }
+void Solution::addVille(Ville *ville){
+    listeVille.push_back(*ville);
+    taille++;
 }
+
+
+/***
+ * A partir d'un vector de ville permet de remplir un autre vector de ville
+ * @param villes
+ * @return la nouvelle
+ */
+
+vector<Ville> Solution::FillCityList(vector<Ville> villes)
+{
+    std::vector<Ville> listeVille;
+    for (auto ville : villes)
+        listeVille.push_back(ville);
+    return listeVille;
+}
+

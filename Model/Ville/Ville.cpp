@@ -39,5 +39,5 @@ double Ville::getLongitude() {
 }
 
 Ville Ville::getVille(Ville a){
-
+    return a;
 }
