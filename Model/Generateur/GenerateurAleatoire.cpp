@@ -11,6 +11,20 @@
 using namespace std;
 
 
+/***
+ * A partir d'un vector de ville permet de remplir un autre vector de ville
+ * @param villes
+ * @return la nouvelle
+ */
+
+vector<Ville> Solution::FillCityList(vector<Ville> villes)
+{
+    std::vector<Ville> listeVille;
+    for (auto ville : villes)
+        listeVille.push_back(ville);
+    return listeVille;
+}
+
 //A mettre dans GenerateurAleatoire.cpp
 /***
  *
