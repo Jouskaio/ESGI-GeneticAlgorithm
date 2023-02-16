@@ -10,7 +10,7 @@
 
 using namespace std;
 
-
+//INUTILE SUREMENT
 /***
  * A partir d'un vector de ville permet de remplir un autre vector de ville
  * @param villes
@@ -25,7 +25,7 @@ vector<Ville> Solution::FillCityList(vector<Ville> villes)
     return listeVille;
 }
 
-//A mettre dans GenerateurAleatoire.cpp
+//A REVOIR
 /***
  *
  * @param villes

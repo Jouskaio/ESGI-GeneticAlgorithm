@@ -80,6 +80,31 @@ double getMeilleureSolution(vector<Solution *> groupeSolution){
     return bestValue;
 }
 
+/***
+ * Fonction d'évaluation de chaque solution dans une population et renvoie la meilleure et sélectionne une nouvelle solution
+ * @param Population
+ * @return
+ */
+vector <Solution*> Evaluateur(vector<Solution*> Population){
+    vector<Solution*> populationSelectionne;
+
+    //Calcul de chaque solution qui constitue la population
+    for(auto solution : Population){
+        SolutionDistanceTotalCalcule(solution);
+    }
+
+    //Récupération de la meilleure valeur de la population
+    double distanceMini = getMeilleureSolution(Population);
+
+    //Sélection de la nouvelle population
+    double seuil = distanceMini + distanceMini * 15 / 100;
+    for(auto solution : Population){
+        if(solution->getValeur() < seuil){
+            populationSelectionne.push_back(solution);
+        }
+    }
+    return populationSelectionne;
+}
 
 
 /*
@@ -93,35 +118,6 @@ double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
     return EARTH_RADIUS * c;
 }
 */
-
-
-int main() {
-    double lat1, lon1, lat2, lon2;
-
-    // Entrée des coordonnées des villes
-    cout << "Entrez la latitude de la ville 1 : ";
-    cin >> lat1;
-
-    cout << "Entrez la longitude de la ville 1 : ";
-    cin >> lon1;
-
-    cout << "Entrez la latitude de la ville 2 : ";
-    cin >> lat2;
-
-    cout << "Entrez la longitude de la ville 2 : ";
-    cin >> lon2;
-
-    // Calcul de la distance entre les deux villes
-    double distance = calculateDistance(lat1, lon1, lat2, lon2);
-
-    // Affichage de la distance
-    cout << "La distance entre les deux villes est de " << distance << " km." << endl;
-
-    return 0;
-}
-
-
-
 
 /*
  *
