@@ -9,16 +9,11 @@
 
 using namespace std;
 
-/***
- *
- */
+
 Solution::Solution() {
     taille = 0;
 }
 
-/***
- *
- */
 Solution::~Solution() {
     if(listeVille.size() > 0){
         for(auto Ville : listeVille){
@@ -27,37 +22,22 @@ Solution::~Solution() {
     }
 }
 
-/***
- *
- * @param ville
- * @return
- */
+
 vector<Ville*> Solution::ajoutVille(Ville *ville) {
     listeVille.push_back(ville);
     this->taille++;
 }
 
-/***
- *
- * @param i
- * @return
- */
+
 Ville* Solution::getVille(const int &i) {
     return listeVille[i];
 }
 
-/***
- *
- * @return
- */
 int Solution::getValeur() {
     return valeur;
 }
 
-/***
- *
- * @param val
- */
+
 void Solution::setValeur(const double &val) {
     this->valeur = val;
 }
@@ -67,5 +47,12 @@ void Solution::addVille(Ville *ville){
     taille++;
 }
 
-
+bool Solution::CheckVille(Solution *solution, Ville *ville){
+    for(Ville villeliste : solution->getVille()){
+        if(ville->getId() == villeliste.getId()){
+            return true;
+        }
+    }
+    return false;
+}
 

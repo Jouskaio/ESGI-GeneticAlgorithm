@@ -13,18 +13,63 @@ class Solution{
     Solution();
     ~Solution();
 
+    /***
+     *
+     * @return
+     */
     vector<Ville*> getlisteVille();
+
+    /***
+     *
+     * @param ville
+     */
     void ajoutVille(Ville *ville);
+
+    /***
+     *
+     * @param i
+     * @return
+     */
     Ville* getVille(const int &i);
 
+    /***
+     *
+     * @return
+     */
     int getTaille();
 
+    /***
+     *
+     * @return
+     */
     double getValeur();
+
+    /***
+     *
+     * @param val
+     */
     void setValeur(const double &val);
 
+    /***
+     *
+     * @param villes
+     * @return
+     */
     vector<Solution*> CreationPopulation(vector<Ville> villes);
 
+    /***
+     *
+     * @param ville
+     */
     void addVille(Ville ville);
+
+    /***
+     *
+     * @param solution
+     * @param ville
+     * @return
+     */
+    bool CheckVille(Solution *solution, Ville *ville);
 
     private:
     vector<Ville*> listeVille;
