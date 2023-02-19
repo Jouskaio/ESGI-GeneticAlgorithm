@@ -5,7 +5,6 @@
 #include <vector>
 #include "../Ville/Ville.hpp"
 
-
 using namespace std;
 
 class Solution{
