@@ -24,10 +24,10 @@ using namespace std;
 
 
 
-template<typename T>
-    T generate(GenerateurAleatoire a, Evaluateur b, Selecteur c, Croisement d, Mutation e, CritereArret f, int population){
-        //return de type T
-    }
+//template<typename T>
+Solution generate(GenerateurAleatoire a, int population){
+
+}
 
 int main(){
     vector<Ville> Villes;
@@ -52,6 +52,27 @@ int main(){
     Ville Courneuve("La Courneuve",18,48.9320252,2.3990819);
     Ville Nanterre("Nanterre",19,48.892423,2.215331);
     Ville Evreux("Évreux",20,49.0270129,1.151361);
+
+    Villes.push_back(Paris);
+    Villes.push_back(Lille);
+    Villes.push_back(Marseille);
+    Villes.push_back(Lyon);
+    Villes.push_back(Angouleme);
+    Villes.push_back(Venisseiux);
+    Villes.push_back(Creteil);
+    Villes.push_back(Grigny);
+    Villes.push_back(Evry);
+    Villes.push_back(Sevran);
+    Villes.push_back(Corbeil);
+    Villes.push_back(SaintDenis);
+    Villes.push_back(Aulnay);
+    Villes.push_back(Aubervilliers);
+    Villes.push_back(Sarcelles);
+    Villes.push_back(Garges);
+    Villes.push_back(Cergy);
+    Villes.push_back(Courneuve);
+    Villes.push_back(Nanterre);
+    Villes.push_back(Evreux);
 
 
 
