@@ -1,4 +1,3 @@
-//La note va être la distance total entre les points.
 #include <iostream>
 #include <stdlib.h>
 #include <math.h>
