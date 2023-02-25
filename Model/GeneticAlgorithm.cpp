@@ -25,10 +25,18 @@ using namespace std;
 #define POPULATION_MAX 20
 
 //template<typename T>
-double generate(vector<Ville> Villes,int population){
+double generate(vector<Ville> Villes){
     double BestVal = 100000000000000000000000000000000000000.00;
+
+    //Génération de notre population
     vector<Solution*> Population = generationPopulation(Villes);
+
+    //Ajout de note à chaque solution de notre population
+    Evaluateur(Population);
+
+    //Algorithme de run
     for(int i = 0; i < POPULATION_MAX;i++){
+        //Sélection de notre nouvelle population en fonction de leurs notes
         vector<Solution*> PopulationElu = Selecteur(Population);
         if(PopulationElu.size() < 2){
             printf("Il n'y a que deux villes dans la solution, la population est trop petite.\n");

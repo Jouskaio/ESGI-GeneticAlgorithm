@@ -18,19 +18,11 @@ using namespace std;
  * Fonction de croisement de 2 solutions parent.
  * @param parent1
  * @param parent2
- * @return
+ * @return une solution enfant croisement des deux parents
  */
 Solution* Croisement(Solution *parent1, Solution *parent2){
     Solution *enfant = new Solution();
-    //int max = 0;
-    /*
-    //Récupération de la taille max
-    if(parent1->getTaille() > parent2->getTaille()){
-        max = parent1->getTaille();
-    } else {
-        max = parent2->getTaille();
-    }
-     */
+
     for(int i = 0; i < parent1->getTaille() ; i++){
         Ville ville1 = parent1->getVille(i);
         Ville ville2 = parent2->getVille(i);

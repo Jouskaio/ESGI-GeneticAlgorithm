@@ -45,7 +45,7 @@ double calculateDistance(Ville *ville1 , Ville ville2) {
 }
 
 /***
- * Permet de calculer la valeur total de toute les villes
+ * Permet de calculer et set la valeur total de toute les villes parmis une solution
  * @param solution
  */
 void SolutionDistanceTotalCalcule(Solution *solution){
@@ -62,47 +62,28 @@ void SolutionDistanceTotalCalcule(Solution *solution){
  * @param groupeSolution
  * @return
  */
-double getMeilleureSolution(vector<Solution *> groupeSolution){
+double getMeilleureSolution(vector<Solution*> Solution){
     //Première valeur de notre groupe de solution
-    double bestValue = groupeSolution[0]->getValeur();
-
-    for(auto solution : groupeSolution){
+    double bestValue = Solution.front()->getValeur();
+    //Recherche de la meilleure valeur parmis toute les solutions
+    for(Solution* solution : Solution){
         if(solution->getValeur() < bestValue){
             bestValue = solution->getValeur();
         }
     }
-
     return bestValue;
 }
 
 /***
- * Fonction d'évaluation de chaque solution dans une population et renvoie la meilleure et sélectionne une nouvelle solution
+ * Fonction d'évaluation de chaque solution dans une population
  * @param Population
  * @return
  */
 void Evaluateur(vector<Solution*> Population){
-    //vector<Solution*> populationSelectionne;
-
     //Calcul de chaque solution qui constitue la population
     for(auto solution : Population){
         SolutionDistanceTotalCalcule(solution);
     }
-
-    /*
-    //Récupération de la meilleure valeur de la population
-    double distanceMini = getMeilleureSolution(Population);
-
-    //Sélection de la nouvelle population
-    //Determination de notre sueil pour la sélection
-    double seuil = distanceMini + distanceMini * 15 / 100;
-
-    for(Solution* solution : Population){
-        if(solution->getValeur() < seuil){
-            populationSelectionne.push_back(solution);
-        }
-    }
-    return populationSelectionne;
-    */
 }
 
 
