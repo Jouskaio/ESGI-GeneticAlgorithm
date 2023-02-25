@@ -15,40 +15,44 @@
 #include "CritereArret/CritereArret.hpp"
 #include "Croisement/Croisement.hpp"
 #include "Evaluateur/Evaluateur.hpp"
-#include "../Generateur/GenerateurAleatoire.hpp"
+#include "Generateur/GenerateurAleatoire.hpp"
 #include "Mutation/Mutation.hpp"
 #include "Selecteur/Selecteur.hpp"
 #include "Solution/Solution.hpp"
-#include "../Ville/Ville.hpp"
+#include "Ville/Ville.hpp"
 
 using namespace std;
 
 #define POPULATION_MAX 20
 
 //template<typename T>
-double algorun(vector<Ville> Villes){
+void algorun(vector<Ville> Villes,int taillePopulation){
     vector<double> liste_val;
     double BestVal = 100000000000000000000000000000000000000.00;
 
     //Génération de notre population
-    vector<Solution*> Population = generationPopulation(Villes);
+    vector<Solution*> Population = generationPopulation(Villes,taillePopulation);
 
     //Ajout de note à chaque solution de notre population
     Evaluateur(Population);
 
     //Algorithme de run
-    for(int i = 0; i < POPULATION_MAX;i++){
+    //Premier critère d'arrêt : 20 itérations max
+    for(int i = 0; i < POPULATION_MAX ;i++){
+        if(CritereArretPlateau(liste_val)){
+
+        }
         //Sélection de notre nouvelle population en fonction de leurs notes
         vector<Solution*> PopulationElu = Selecteur(Population);
         if(PopulationElu.size() < 2){
             printf("Il n'y a que deux villes dans la solution, la population est trop petite.\n");
-            return 0;
+            return;
         }
 
         printf("Generation : %i \n",i+1);
         printf("Meilleure distance de notre population actuelle : %f", getMeilleureSolution(PopulationElu));
         printf("Taille actuelle de la génération : %i", PopulationElu.size());
-        liste_val.push_back(getMeilleureSolution(PopulationElu));
+        //liste_val.push_back(getMeilleureSolution(PopulationElu));
         if(getMeilleureSolution(PopulationElu) < BestVal){
             BestVal = getMeilleureSolution(PopulationElu);
         }
@@ -105,7 +109,7 @@ int main(){
     Villes.push_back(Nanterre);
     Villes.push_back(Evreux);
 
-    algorun(Villes);
+    algorun(Villes,20);
     return 0;
 
 }

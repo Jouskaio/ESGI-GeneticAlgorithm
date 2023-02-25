@@ -14,16 +14,23 @@
 
 using namespace std;
 
-//Creation classe:
-
 //seuil de qualité : si on obtient une solution suffisamment bonne, on arrête
-
-//seuil d’itérations : si on itère trop longtemps, on arrête
-
-//apparition d’un “plateau” : si on n’améliore pas notre solution pendant un certain nombre d’itérations (note reste stable, on parle de plateau)
 
 //combinaison de critères ci-dessus.
 
-bool CritereArret(vector<double> ListeVal){
-
+bool CritereArretPlateau(vector<double> ListeVal){
+    if(ListeVal.size() >= 10){
+        vector <double> MyListe;
+        //Ajout des 10 dernières valeurs pour check si présence d'un plateau
+        for(int i = ListeVal.size(); i > ListeVal.size()-10; i-- ){
+            MyListe.insert(MyListe.begin(),ListeVal[i]);
+        }
+        //Check si pour la première valeur, nous avons 9 valeurs identiques à 3% près
+        for(int i =1; i<10;i++){
+            if(!(MyListe[9] >= MyListe[i] - (MyListe[i] * 0.03) && MyListe[0] <= MyListe[i] + (MyListe[i] * 0.03))){
+                return true;
+            }
+        }
+    }
+    return false;
 }

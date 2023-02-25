@@ -1,3 +1,6 @@
+#ifndef _SOLUTION_HPP_
+#define _SOLUTION_HPP_
+
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -61,7 +64,7 @@ class Solution{
      *
      * @param ville
      */
-    void addVille(Ville ville);
+    void addVille(Ville *ville);
 
     /***
      *
@@ -76,3 +79,5 @@ class Solution{
     int taille;
     double valeur;
 };
+
+#endif

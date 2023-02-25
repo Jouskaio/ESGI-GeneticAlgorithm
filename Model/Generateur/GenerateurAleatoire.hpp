@@ -4,7 +4,6 @@
 #include <iomanip>
 #include <cstdio>
 #include <vector>
-#include "GenerateurAleatoire.hpp"
 #include "../Solution/Solution.hpp"
 #include "../Ville/Ville.hpp"
 
@@ -16,10 +15,10 @@ using namespace std;
  * @param villes : La liste de ville choisis arbitrairement
  * @return Population : Une liste de solution
  */
-vector<Solution*> generationPopulation(vector<Ville> villes){
-    vector<Solution*> Population = new Solution();
+vector<Solution*> generationPopulation(vector<Ville> villes,int nombre){
+    vector<Solution*> Population;
     //Décision arbitraire de la taille max d'une population de 100 solutions
-    for(int i = 0; i <100 ; i++){
+    for(int i = 0; i <nombre ; i++){
         //Création d'une nouvelle liste avec les villes
         vector<Ville> listeVille;
         for (Ville ville : villes){

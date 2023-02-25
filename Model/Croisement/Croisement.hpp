@@ -24,10 +24,10 @@ Solution* Croisement(Solution *parent1, Solution *parent2){
     Solution *enfant = new Solution();
 
     for(int i = 0; i < parent1->getTaille() ; i++){
-        Ville ville1 = parent1->getVille(i);
-        Ville ville2 = parent2->getVille(i);
+        Ville *ville1 = parent1->getVille(i);
+        Ville *ville2 = parent2->getVille(i);
         //on check que les 2 villes n'ont pas le même Id
-        if(ville1.getId() != ville2.getId()){
+        if(ville1->getId() != ville2->getId()){
             //On check que la première ville n'est pas présente dans l'enfant et que sa taille est inférieure à celui du parent
             if(!enfant->CheckVille(enfant,ville1) && enfant->getTaille() < parent1->getTaille()){
                 enfant->addVille(ville1);
@@ -62,12 +62,12 @@ vector<Solution*> Evolution(vector<Solution*> Population){
         NextGen.push_back(b);
     }
     //Décision arbitraire de la taille max d'une population de 100 solutions
-    while(NewGeneration.size() < 100 + Population.size()){
+    while(NextGen.size() < 100 + Population.size()){
         int k_parent1 = rand() % Population.size();
         int k_parent2 = rand() % Population.size();
 
         if(k_parent1 != k_parent2){
-            NewGeneration.push_back(Croisement(Population[k_parent1],Population[k_parent2]));
+            NextGen.push_back(Croisement(Population[k_parent1],Population[k_parent2]));
 
             int chance_mutation = rand() % 100;
             if(chance_mutation < 5){

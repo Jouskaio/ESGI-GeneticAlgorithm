@@ -24,18 +24,12 @@ Solution::~Solution() {
 }
 
 
-vector<Ville*> Solution::ajoutVille(Ville *ville) {
-    listeVille.push_back(ville);
-    this->taille++;
-}
-
-
 Ville* Solution::getVille(int i) {
     return listeVille[i];
 }
 
 
-int Solution::getValeur() {
+double Solution::getValeur() {
     return valeur;
 }
 
@@ -44,14 +38,19 @@ void Solution::setValeur(double val) {
     this->valeur = val;
 }
 
+void Solution::ajoutVille(Ville *ville) {
+    listeVille.push_back(ville);
+    this->taille++;
+}
+
 void Solution::addVille(Ville *ville){
-    listeVille.push_back(*ville);
+    listeVille.push_back(ville);
     taille++;
 }
 
 bool Solution::CheckVille(Solution *solution, Ville *ville){
-    for(Ville villeliste : solution->getVille()){
-        if(ville->getId() == villeliste.getId()){
+    for(int i = 0 ; i< solution->getTaille() ; i++){
+        if(ville->getId() == solution->getVille(i)->getId()){
             return true;
         }
     }

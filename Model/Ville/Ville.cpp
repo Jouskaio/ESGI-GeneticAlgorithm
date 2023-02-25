@@ -16,7 +16,7 @@ Ville::Ville(string nom, int id, int latitude, int longitude) {
     this->nom = nom;
     this->id = id;
     this->latitude= latitude;
-    this->longitude= longitude
+    this->longitude= longitude;
 }
 
 Ville::~Ville(){

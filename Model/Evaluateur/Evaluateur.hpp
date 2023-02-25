@@ -8,12 +8,12 @@
 #include <string>
 #include <iomanip>
 #include <vector>
-#include "../Solution/Solution.hpp"
-#include "../Ville/Ville.hpp"
+#include "../Solution/Solution.cpp"
+#include "../Ville/Ville.cpp"
 
 using namespace std;
-const double PI = 3.14159265358979323846;
-const double EARTH_RADIUS = 6371.0; // en km
+//double PI = 3.14159265358979323846;
+//double EARTH_RADIUS = 6371.0; // en km
 
 /***
  *
@@ -21,8 +21,10 @@ const double EARTH_RADIUS = 6371.0; // en km
  * @return
  */
 double toRadians(double degree) {
-    return degree * PI / 180.0;
+    //Degrés multiplié par Pi divisé par 180
+    return degree * 3.14159265358979323846 / 180.0;
 }
+
 
 /***
  * Permet de calculer la distance en KM entre deux villes via leurs coordonnées GPS
@@ -30,7 +32,7 @@ double toRadians(double degree) {
  * @param ville2
  * @return la distance des deux villes en KM
  */
-double calculateDistance(Ville *ville1 , Ville ville2) {
+double calculateDistance(Ville *ville1 , Ville *ville2) {
     double lat1 = ville1->getLatitude();
     double lon1 = ville1->getLongitude();
     double lat2 = ville2->getLatitude();
@@ -42,7 +44,8 @@ double calculateDistance(Ville *ville1 , Ville ville2) {
     double a = sin(dLat / 2) * sin(dLat / 2) + cos(toRadians(lat1)) * cos(toRadians(lat2)) * sin(dLon / 2) * sin(dLon / 2);
     double c = 2 * atan2(sqrt(a), sqrt(1 - a));
 
-    return EARTH_RADIUS * c;
+    //Earth Radius
+    return 6371.0 * c;
 }
 
 /***
@@ -67,9 +70,9 @@ double getMeilleureSolution(vector<Solution*> Solution){
     //Première valeur de notre groupe de solution
     double bestValue = Solution.front()->getValeur();
     //Recherche de la meilleure valeur parmis toute les solutions
-    for(Solution* solution : Solution){
-        if(solution->getValeur() < bestValue){
-            bestValue = solution->getValeur();
+    for(auto sol : Solution){
+        if(sol->getValeur() < bestValue){
+            bestValue = sol->getValeur();
         }
     }
     return bestValue;
