@@ -14,20 +14,42 @@
 #include "CritereArret/CritereArret.hpp"
 #include "Croisement/Croisement.hpp"
 #include "Evaluateur/Evaluateur.hpp"
-#include "Generateur/GenerateurAleatoire.hpp"
+#include "../Generateur/GenerateurAleatoire.hpp"
 #include "Mutation/Mutation.hpp"
 #include "Selecteur/Selecteur.hpp"
 #include "Solution/Solution.hpp"
-#include "Ville/Ville.hpp"
+#include "../Ville/Ville.hpp"
 
 using namespace std;
 
-
+#define POPULATION_MAX 20
 
 //template<typename T>
-Solution generate(GenerateurAleatoire a, int population){
+double generate(vector<Ville> Villes,int population){
+    double BestVal = 100000000000000000000000000000000000000.00;
+    vector<Solution*> Population = generationPopulation(Villes);
+    for(int i = 0; i < POPULATION_MAX;i++){
+        vector<Solution*> PopulationElu = Selecteur(Population);
+        if(PopulationElu.size() < 2){
+            printf("Il n'y a que deux villes dans la solution, la population est trop petite.\n");
+            return 0;
+        }
 
+        printf("Generation : %i \n",i+1);
+        printf("Meilleure distance de notre population actuelle : %f", getMeilleureSolution(PopulationElu));
+        printf("Taille actuelle de la génération : %i", PopulationElu.size());
+        if(getMeilleureSolution(PopulationElu) < BestVal){
+            BestVal = getMeilleureSolution(PopulationElu);
+        }
+    }
 }
+//Critere Arret NON
+//Croisement OUI
+//Evolution OUI
+//generateur OUI
+//Selecteur NON
+//Evaluateur OUI
+
 
 int main(){
     vector<Ville> Villes;

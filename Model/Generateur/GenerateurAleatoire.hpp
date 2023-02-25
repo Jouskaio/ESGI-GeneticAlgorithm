@@ -17,8 +17,7 @@ using namespace std;
  * @return la nouvelle
  */
 
-vector<Ville> Solution::FillCityList(vector<Ville> villes)
-{
+vector<Ville> FillCityList(vector<Ville> villes){
     std::vector<Ville> listeVille;
     for (auto ville : villes)
         listeVille.push_back(ville);
@@ -31,10 +30,10 @@ vector<Ville> Solution::FillCityList(vector<Ville> villes)
  * @param villes
  * @return
  */
-vector<Solution*> Solution::generationPopulation(vector<Ville> villes){
+vector<Solution*> generationPopulation(vector<Ville> villes){
     vector<Solution*> Population = vector<Solution*>();
 
-    for(int i = 0; i <100 ; i++){ //Mettre une variable global pour définir la taille max
+    for(int i = 0; i <100 ; i++){ //Mettre une variable global pour définir la taille de la population
         vector<Ville> listeVille = FillCityList(villes);
         Solution *solution = new Solution();
 

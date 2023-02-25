@@ -7,26 +7,32 @@
 #include "../Solution/Solution.hpp"
 #include "../Croisement/Croisement.hpp"
 #include "../Ville/Ville.hpp"
+#include "../Evaluateur/Evaluateur.hpp"
 
 using namespace std;
 
+/***
+ * Algo utilisant la selection par élitisme donc les N meilleures éléments de notre solution
+ * @param Population
+ * @return
+ */
 vector<Solution*> Selecteur(vector<Solution*> Population){
     vector <Solution*> NewGeneration;
 
+    //Ajout des notes à chaque solution
+    Evaluateur(Population);
+
+    //Récupération de la meilleure valeur de la population
+    double distanceMini = getMeilleureSolution(Population);
+
+    //Determination de notre sueil pour la sélection
+    double seuil = distanceMini + distanceMini * 15 / 100;
+
     //Selection via les N meilleurs parents donc selection par élitisme
-    vector <Solution*> BestParents = Evaluateur(Population);
-    for(Solution* sol : BestParents){
-        NewGeneration.push_back(sol);
-    }
-
-    while(NewGeneration.size() < 100 + Population.size()){//need to set up une variable glo pour la population size
-        int k_parent1 = rand() % Population.size();
-        int k_parent2 = rand() % Population.size();
-
-        if(k_parent1 != k_parent2){
-            NewGeneration.push_back(Croisement(Population[k_parent2],Population[k_parent2]));
-
-            //implémentation d'une évolution MAYBE
+    for(Solution* sol : Population){
+        if(sol->getValeur() < seuil){
+            NewGeneration.push_back(solution);
         }
     }
+    return NewGeneration;
 }

@@ -11,10 +11,6 @@
 #include "../Ville/Ville.hpp"
 
 using namespace std;
-
-
-
-
 const double PI = 3.14159265358979323846;
 const double EARTH_RADIUS = 6371.0; // en km
 
@@ -84,25 +80,29 @@ double getMeilleureSolution(vector<Solution *> groupeSolution){
  * @param Population
  * @return
  */
-vector <Solution*> Evaluateur(vector<Solution*> Population){
-    vector<Solution*> populationSelectionne;
+void Evaluateur(vector<Solution*> Population){
+    //vector<Solution*> populationSelectionne;
 
     //Calcul de chaque solution qui constitue la population
     for(auto solution : Population){
         SolutionDistanceTotalCalcule(solution);
     }
 
+    /*
     //Récupération de la meilleure valeur de la population
     double distanceMini = getMeilleureSolution(Population);
 
     //Sélection de la nouvelle population
+    //Determination de notre sueil pour la sélection
     double seuil = distanceMini + distanceMini * 15 / 100;
-    for(auto solution : Population){
+
+    for(Solution* solution : Population){
         if(solution->getValeur() < seuil){
             populationSelectionne.push_back(solution);
         }
     }
     return populationSelectionne;
+    */
 }
 
 
@@ -116,9 +116,7 @@ double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
 
     return EARTH_RADIUS * c;
 }
-*/
 
-/*
  *
  * Calculate distance (in km) between two points specified by latitude/longitude with Haversine formula
 LatLong.distHaversine = function(p1, p2) {
