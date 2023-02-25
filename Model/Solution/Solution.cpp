@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <string>
 #include <iomanip>
+#include <cstdio>
 #include <vector>
 #include "Solution.hpp"
 #include "../Ville/Ville.hpp"
@@ -29,16 +30,17 @@ vector<Ville*> Solution::ajoutVille(Ville *ville) {
 }
 
 
-Ville* Solution::getVille(const int &i) {
+Ville* Solution::getVille(int i) {
     return listeVille[i];
 }
+
 
 int Solution::getValeur() {
     return valeur;
 }
 
 
-void Solution::setValeur(const double &val) {
+void Solution::setValeur(double val) {
     this->valeur = val;
 }
 

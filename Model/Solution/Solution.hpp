@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <string>
 #include <iomanip>
+#include <cstdio>
 #include <vector>
 #include "../Ville/Ville.hpp"
 
@@ -29,7 +30,7 @@ class Solution{
      * @param i
      * @return
      */
-    Ville* getVille(const int &i);
+    Ville* getVille(int i);
 
     /***
      *
@@ -47,7 +48,7 @@ class Solution{
      *
      * @param val
      */
-    void setValeur(const double &val);
+    void setValeur(double val);
 
     /***
      *

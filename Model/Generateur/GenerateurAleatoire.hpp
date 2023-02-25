@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <string>
 #include <iomanip>
+#include <cstdio>
 #include <vector>
 #include "GenerateurAleatoire.hpp"
 #include "../Solution/Solution.hpp"

@@ -3,6 +3,7 @@
 #include <math.h>
 #include <cmath>
 #include <random>
+#include <cstdio>
 #include <algorithm>
 #include <string>
 #include <iomanip>
@@ -23,7 +24,7 @@ void Mutation(Solution *solution){
     int k_ville1 = rand() % solution->getTaille();
     int k_ville2 = rand() % solution->getTaille();
 
-    //Récupération des 2 villes;
+    //Récupération des 2 villes
     Ville *ville1 = solution->getVille()[k_ville1];
     Ville *ville2 = solution->getVille()[k_ville2];
 

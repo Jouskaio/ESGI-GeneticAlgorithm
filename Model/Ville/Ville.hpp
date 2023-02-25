@@ -6,6 +6,7 @@
 #define ESGI_GENETICALGORITHM_VILLE_H
 
 #include <iostream>
+#include <cstdio>
 #include <algorithm>
 #include <string>
 #include <iomanip>

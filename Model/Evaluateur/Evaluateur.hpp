@@ -4,6 +4,7 @@
 #include <cmath>
 #include <random>
 #include <algorithm>
+#include <cstdio>
 #include <string>
 #include <iomanip>
 #include <vector>

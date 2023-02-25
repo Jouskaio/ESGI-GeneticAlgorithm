@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <string>
 #include <iomanip>
+#include <cstdio>
 #include "Ville.hpp"
 
 

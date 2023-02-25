@@ -1,9 +1,9 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
+#include <cstdio>
 #include <iomanip>
 #include <vector>
-#include "../"
 #include "../Solution/Solution.hpp"
 #include "../Ville/Ville.hpp"
 #include "../Evaluateur/Evaluateur.hpp"
@@ -54,15 +54,15 @@ Solution* Croisement(Solution *parent1, Solution *parent2){
 vector<Solution*> Evolution(vector<Solution*> Population){
     vector<Solution*> NextGen;
 
-    //Pour l'évolution de notre population on garde les meilleurs éléments en fonction des critères d'évaluations
+    //Pour l'évolution de notre population, on garde les meilleurs éléments en fonction des critères d'évaluations
     vector<Solution*> Best = Selecteur(Population);
 
     //Ajout des meilleurs éléments dans la nouvelle génération en premier lieu
     for(Solution* b : Best){
         NextGen.push_back(b);
     }
-
-    while(NewGeneration.size() < 100 + Population.size()){//Mettre une variable global pour définir la taille de la population
+    //Décision arbitraire de la taille max d'une population de 100 solutions
+    while(NewGeneration.size() < 100 + Population.size()){
         int k_parent1 = rand() % Population.size();
         int k_parent2 = rand() % Population.size();
 
@@ -70,12 +70,9 @@ vector<Solution*> Evolution(vector<Solution*> Population){
             NewGeneration.push_back(Croisement(Population[k_parent1],Population[k_parent2]));
 
             int chance_mutation = rand() % 100;
-
             if(chance_mutation < 5){
                 Mutation(NextGen.back());
             }
-
-
         }
     }
     return NextGen;

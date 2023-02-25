@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <cmath>
+#include <cstdio>
 #include <random>
 #include <algorithm>
 #include <string>
@@ -25,7 +26,8 @@ using namespace std;
 #define POPULATION_MAX 20
 
 //template<typename T>
-double generate(vector<Ville> Villes){
+double algorun(vector<Ville> Villes){
+    vector<double> liste_val;
     double BestVal = 100000000000000000000000000000000000000.00;
 
     //Génération de notre population
@@ -46,17 +48,16 @@ double generate(vector<Ville> Villes){
         printf("Generation : %i \n",i+1);
         printf("Meilleure distance de notre population actuelle : %f", getMeilleureSolution(PopulationElu));
         printf("Taille actuelle de la génération : %i", PopulationElu.size());
+        liste_val.push_back(getMeilleureSolution(PopulationElu));
         if(getMeilleureSolution(PopulationElu) < BestVal){
             BestVal = getMeilleureSolution(PopulationElu);
         }
+        //Nouvelle génération
+        Population = Evolution(PopulationElu);
     }
+    printf("Meilleure distance toute generation confondue : %f \n", BestVal);
+
 }
-//Critere Arret NON
-//Croisement OUI
-//Evolution OUI
-//generateur OUI
-//Selecteur NON
-//Evaluateur OUI
 
 
 int main(){
@@ -104,7 +105,8 @@ int main(){
     Villes.push_back(Nanterre);
     Villes.push_back(Evreux);
 
-
+    algorun(Villes);
+    return 0;
 
 }
 //Faire une classe GeneticAlgorithm, templatisée par :
