@@ -20,9 +20,9 @@ vector<Solution*> generationPopulation(vector<Ville> villes,int nombre){
     //Décision arbitraire de la taille max d'une population de 100 solutions
     for(int i = 0; i <nombre ; i++){
         //Création d'une nouvelle liste avec les villes
-        vector<Ville> listeVille;
+        vector<Ville*> listeVille;
         for (Ville ville : villes){
-            listeVille.push_back(ville);
+            listeVille.push_back(&ville);
         }
         Solution *solution = new Solution();
 

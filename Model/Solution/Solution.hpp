@@ -1,5 +1,8 @@
-#ifndef _SOLUTION_HPP_
-#define _SOLUTION_HPP_
+#pragma once
+#ifndef SOLUTION_HPP
+#define SOLUTION_HPP
+
+
 
 #include <iostream>
 #include <algorithm>
@@ -80,4 +83,4 @@ class Solution{
     double valeur;
 };
 
-#endif
+#endif //_SOLUTION_HPP

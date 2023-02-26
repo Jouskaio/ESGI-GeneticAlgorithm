@@ -1,9 +1,7 @@
-//
-// Created by Mikail Yilmaz on 12/02/2023.
-//
+#pragma once
+#ifndef ESGI_GENETICALGORITHM_VILLE_HPP
+#define ESGI_GENETICALGORITHM_VILLE_HPP
 
-#ifndef ESGI_GENETICALGORITHM_VILLE_H
-#define ESGI_GENETICALGORITHM_VILLE_H
 
 #include <iostream>
 #include <cstdio>
@@ -17,7 +15,7 @@ using namespace std;
 class Ville{
     public:
     Ville();
-    Ville(string nom, int id, int latitude, int longitude);
+    Ville(string nom, int id, double latitude, double longitude);
     ~Ville();
 
     /***
@@ -59,4 +57,4 @@ class Ville{
 
 };
 
-#endif //ESGI_GENETICALGORITHM_VILLE_H
+#endif //ESGI_GENETICALGORITHM_VILLE_HPP

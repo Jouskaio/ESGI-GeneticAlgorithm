@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <stdlib.h>
 #include <math.h>
@@ -25,8 +26,8 @@ void Mutation(Solution *solution){
     int k_ville2 = rand() % solution->getTaille();
 
     //Récupération des 2 villes
-    Ville *ville1 = solution->getVille()[k_ville1];
-    Ville *ville2 = solution->getVille()[k_ville2];
+    Ville *ville1 = solution->getVille(k_ville1);
+    Ville *ville2 = solution->getVille(k_ville2);
 
     //Ajout des villes en inversant l'index des 2 villes de départ dans une nouvelle solution
     //Ajout des villes jusqu'au premier index

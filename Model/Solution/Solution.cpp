@@ -5,14 +5,14 @@
 #include <cstdio>
 #include <vector>
 #include "Solution.hpp"
-#include "../Ville/Ville.hpp"
+//#include "../Ville/Ville.hpp"
 
 
 using namespace std;
 
 
 Solution::Solution() {
-    taille = 0;
+    this->taille = 0;
 }
 
 Solution::~Solution() {
@@ -30,7 +30,7 @@ Ville* Solution::getVille(int i) {
 
 
 double Solution::getValeur() {
-    return valeur;
+    return this->valeur;
 }
 
 
@@ -46,6 +46,10 @@ void Solution::ajoutVille(Ville *ville) {
 void Solution::addVille(Ville *ville){
     listeVille.push_back(ville);
     taille++;
+}
+
+int Solution::getTaille(){
+    return this->taille;
 }
 
 bool Solution::CheckVille(Solution *solution, Ville *ville){

@@ -12,7 +12,7 @@
 
 using namespace std;
 
-Ville::Ville(string nom, int id, int latitude, int longitude) {
+Ville::Ville(string nom, int id, double latitude, double longitude) {
     this->nom = nom;
     this->id = id;
     this->latitude= latitude;

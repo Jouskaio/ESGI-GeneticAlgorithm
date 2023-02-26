@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <algorithm>
 #include <string>
@@ -32,7 +33,7 @@ vector<Solution*> Selecteur(vector<Solution*> Population){
     //Selection via les N meilleurs parents donc selection par élitisme
     for(Solution* sol : Population){
         if(sol->getValeur() < seuil){
-            NewGeneration.push_back(solution);
+            NewGeneration.push_back(sol);
         }
     }
     return NewGeneration;
